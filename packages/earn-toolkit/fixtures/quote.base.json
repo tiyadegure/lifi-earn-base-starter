@@ -1,0 +1,37 @@
+{
+  "tool": "composer",
+  "integrator": "LIFI-API",
+  "action": {
+    "fromAmount": "20000",
+    "fromToken": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "chainId": 8453,
+      "symbol": "USDC",
+      "decimals": 6,
+      "name": "USD Coin"
+    }
+  },
+  "estimate": {
+    "approvalAddress": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+    "fromAmount": "20000",
+    "toAmount": "19376",
+    "toAmountMin": "19300"
+  },
+  "transactionRequest": {
+    "to": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+    "from": "0x9D58f474D6c29Dcc2703b9b432F7eE2Fe1415C5e",
+    "data": "0x1234",
+    "value": "0x0",
+    "chainId": 8453
+  },
+  "includedSteps": [
+    {
+      "tool": "feeCollection",
+      "type": "lifi"
+    },
+    {
+      "tool": "composer",
+      "type": "lifi"
+    }
+  ]
+}

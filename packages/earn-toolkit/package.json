@@ -1,0 +1,26 @@
+{
+  "name": "lifi-earn-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test test/**/*.test.ts",
+    "cli": "tsx src/cli.ts",
+    "smoke": "tsx scripts/smoke.ts"
+  },
+  "bin": {
+    "earn": "./src/cli.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./cli-core": "./src/cli-core.ts",
+    "./client": "./src/client.ts",
+    "./doctor": "./src/doctor.ts",
+    "./presets": "./src/presets.ts",
+    "./quote": "./src/quote.ts",
+    "./route-debug": "./src/route-debug.ts",
+    "./types": "./src/types.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts"
+}

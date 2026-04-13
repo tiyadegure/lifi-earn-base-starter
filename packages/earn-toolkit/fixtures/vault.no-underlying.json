@@ -1,0 +1,30 @@
+{
+  "address": "0x1111111111111111111111111111111111111111",
+  "network": "base",
+  "chainId": 8453,
+  "slug": "empty-vault",
+  "name": "Empty Vault",
+  "description": "Fixture with no usable underlying token",
+  "protocol": {
+    "name": "fixture-protocol",
+    "url": "https://example.com"
+  },
+  "underlyingTokens": [],
+  "lpTokens": [],
+  "tags": ["base", "transactional"],
+  "analytics": {
+    "apy": {
+      "base": null,
+      "reward": null,
+      "total": null
+    },
+    "apy1d": null,
+    "apy7d": null,
+    "apy30d": null,
+    "tvl": {
+      "usd": "0"
+    }
+  },
+  "isTransactional": true,
+  "isRedeemable": false
+}

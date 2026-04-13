@@ -1,0 +1,7 @@
+{
+  "isConnected": true,
+  "chainName": "Base",
+  "onBaseDemoChain": true,
+  "baseNativeBalance": null,
+  "baseUsdcBalance": "0.02"
+}
