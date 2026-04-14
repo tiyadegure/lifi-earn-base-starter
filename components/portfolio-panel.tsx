@@ -18,9 +18,11 @@ export function PortfolioPanel() {
   const portfolioQuery = useQuery({
     queryKey: ["portfolio", address],
     enabled: !!address && isConnected && hydrated,
-    refetchInterval: activePollingState ? 4000 : false,
+    refetchInterval: activePollingState ? 4000 : 15000,
     queryFn: async () => {
-      const response = await fetch(`/api/portfolio/${address}`);
+      const response = await fetch(`/api/portfolio/${address}`, {
+        cache: "no-store",
+      });
       if (!response.ok) {
         throw new Error("Unable to fetch portfolio data");
       }

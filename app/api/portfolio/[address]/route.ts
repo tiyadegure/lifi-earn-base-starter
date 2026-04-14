@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getPortfolio } from "@/lib/earn-api";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   _request: Request,
   context: { params: Promise<{ address: string }> },
