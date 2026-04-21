@@ -113,7 +113,7 @@ export function PortfolioPanel() {
         </div>
       ) : !isConnected || !address ? (
         <div className="mt-6 rounded-none border-2 border-dashed border-[color:var(--ink)] bg-[color:var(--paper)] px-5 py-8 text-sm leading-7 text-[color:var(--muted-ink)]">
-          Connect a wallet first. This panel only reads `GET /v1/earn/portfolio/:address/positions` for the active address.
+          Connect a wallet first. This panel only reads `GET /v1/portfolio/:address/positions` for the active address.
         </div>
       ) : null}
 

@@ -1,4 +1,5 @@
-import { publicEnv } from "./env";
+import "server-only";
+import { publicEnv, requireComposerApiKey } from "./env";
 import type {
   EarnPortfolioResponse,
   EarnVault,
@@ -8,9 +9,13 @@ import type {
 const VAULT_PAGE_SIZE = 100;
 
 async function fetchJson<T>(url: string): Promise<T> {
+  const apiKey = requireComposerApiKey();
   const response = await fetch(url, {
     method: "GET",
     cache: "no-store",
+    headers: {
+      "x-lifi-api-key": apiKey,
+    },
   });
 
   const payload = (await response.json()) as T & { message?: string };
@@ -77,7 +82,7 @@ async function getAllBaseVaults(): Promise<EarnVault[]> {
 async function getBaseVaultPage(
   cursor?: string | null,
 ): Promise<EarnVaultListResponse> {
-  const url = new URL("/v1/earn/vaults", publicEnv.earnApiUrl);
+  const url = new URL("/v1/vaults", publicEnv.earnApiUrl);
   url.searchParams.set("chainId", String(publicEnv.baseChainId));
   url.searchParams.set("limit", String(VAULT_PAGE_SIZE));
 
@@ -92,7 +97,7 @@ export async function getPortfolio(
   address: string,
 ): Promise<EarnPortfolioResponse> {
   const url = new URL(
-    `/v1/earn/portfolio/${address}/positions`,
+    `/v1/portfolio/${address}/positions`,
     publicEnv.earnApiUrl,
   );
 

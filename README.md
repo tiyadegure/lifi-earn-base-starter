@@ -13,7 +13,7 @@ This repo is intentionally narrow:
 - a local reusable workspace package under `packages/earn-toolkit`
 - an in-app integration doctor and toolkit page at `/toolkit`
 - wallet transaction handoff
-- portfolio verification against `GET /v1/earn/portfolio/:address/positions`
+- portfolio verification against `GET /v1/portfolio/:address/positions`
 
 It is not a full yield dashboard. It is a builder-facing template that gets another participant to a real faucet-backed test loop quickly.
 
@@ -41,8 +41,9 @@ Open `http://localhost:3000/toolkit` only after the starter path is already runn
   - Explicit string identifier used by LI.FI for API requests
 - `LIFI_COMPOSER_API_KEY`
   - Get it from `https://portal.li.fi/`
+  - Required for both Earn data requests and authenticated Composer requests
   - In trusted local/dev mode, the starter quote route uses this authenticated Composer path
-  - If it is missing, the starter falls back to the public Composer path and surfaces that mode in the UI
+  - If it is missing, Earn data requests now fail and the starter can no longer rely on public Earn access
 - Injected wallet with Base support
 - Base faucet funds if you want to run a real deposit test
   - `https://lifi-faucet.vercel.app/`
@@ -145,6 +146,7 @@ The fastest way to understand the repo is:
 ## Known API caveats
 
 - Composer quote is `GET /v1/quote`, not POST
+- Earn data routes now use `/v1/...` paths such as `GET /v1/vaults` and `GET /v1/portfolio/:address/positions`
 - Vault `address` is the Composer `toToken`
 - APY fields can be `null`
 - TVL comes back as a string

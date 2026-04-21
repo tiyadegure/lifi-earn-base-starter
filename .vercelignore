@@ -1,0 +1,13 @@
+.git
+.vercel
+.next
+node_modules
+.run
+.env.local
+.env*.local
+.next-dev.log
+.next-dev.err.log
+*.log
+*.tsbuildinfo
+SUBMISSION.md
+submission
